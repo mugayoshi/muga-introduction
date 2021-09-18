@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { MacAppWindow } from "./AppWindow";
 import { TerminalLine } from "./TerminalLine";
 
@@ -23,6 +24,11 @@ const questionsAndAnswers: SelfIntroQuestion[] = [
 
 export const Terminal: React.FC = () => {
     const lineClasses = ["ml-2", "text-white", "font-mono", "mt-1"];
+    const [currentDate, setCurrentDate] = useState(new Date());
+    
+    useEffect(() => {
+      setCurrentDate(new Date());
+    }, []);
 
     return (
         <>
@@ -33,10 +39,11 @@ export const Terminal: React.FC = () => {
                     style={{ minHeight: "400px" }}
                 >
                     <p className="ml-2 text-white font-mono">
-                        ~ $: npm run IntroduceYourself
+                    [{currentDate.toLocaleDateString()} {currentDate.toLocaleTimeString()}]<br/> ~ $: npm run IntroduceYourself
                     </p>
                     {questionsAndAnswers.map((item, i) => (
                         <TerminalLine
+                            key={i}
                             classes={lineClasses}
                             question={item.question}
                             questionAnswer={item.answer}
