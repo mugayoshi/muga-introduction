@@ -1,6 +1,6 @@
-import { useEffect, useState, VFC } from "react";
-import { MacAppWindow } from "./AppWindow";
-import { TerminalLine } from "./TerminalLine";
+import { useEffect, useState, VFC } from 'react';
+import { MacAppWindow } from './AppWindow';
+import { TerminalLine } from './TerminalLine';
 
 interface SelfIntroQuestion {
     question: string;
@@ -8,17 +8,17 @@ interface SelfIntroQuestion {
 }
 
 const nameQuestionAndAnswer: SelfIntroQuestion = {
-    question: "name",
-    answer: "Muga Yoshikawa",
+    question: 'name',
+    answer: 'Muga Yoshikawa',
 };
 
 const birthday: SelfIntroQuestion = {
-    question: "birthday",
-    answer: "30th January",
+    question: 'birthday',
+    answer: '30th January',
 };
 const country: SelfIntroQuestion = {
-        question: "from",
-        answer: "Japan",
+    question: 'from',
+    answer: 'Japan',
 };
 const questionsAndAnswers: SelfIntroQuestion[] = [
     nameQuestionAndAnswer,
@@ -31,7 +31,7 @@ function sleep(ms: number) {
 }
 
 export const Terminal: VFC = () => {
-    const lineClasses = ["ml-2", "text-white", "font-mono", "mt-1"];
+    const lineClasses = ['ml-2', 'text-white', 'font-mono', 'mt-1'];
     const [currentDate, setCurrentDate] = useState(new Date());
     const [lines, setLine] = useState([] as SelfIntroQuestion[]);
 
@@ -43,7 +43,7 @@ export const Terminal: VFC = () => {
             await sleep(questionsAndAnswers[0].answer.length * 100 + 500);
             setLine(questionsAndAnswers.slice(0, 2));
             await sleep(questionsAndAnswers[1].answer.length * 100 + 500);
-            setLine(questionsAndAnswers.slice(0, 3))
+            setLine(questionsAndAnswers.slice(0, 3));
         })();
     }, []);
 
@@ -53,10 +53,10 @@ export const Terminal: VFC = () => {
                 <MacAppWindow title='Default(~msh)' />
                 <div
                     className='container bg-black bg-opacity-70 my-0'
-                    style={{ minHeight: "400px" }}
+                    style={{ minHeight: '400px' }}
                 >
                     <p className='ml-2 text-white font-mono'>
-                        [{currentDate.toLocaleDateString()}{" "}
+                        [{currentDate.toLocaleDateString()}{' '}
                         {currentDate.toLocaleTimeString()}]<br /> ~ $: run
                         IntroduceYourself
                     </p>
