@@ -49,7 +49,7 @@ export const Terminal: VFC = () => {
 
     return (
         <>
-            <div className='left-5 w-4/5 my-10 ml-10 rounded'>
+            <div className='left-5 w-4/5 max-w-xl my-10 ml-10 rounded'>
                 <MacAppWindow title='Default(~msh)' />
                 <div
                     className='container bg-black bg-opacity-70 my-0'

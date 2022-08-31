@@ -10,9 +10,10 @@ function formatDateForHeader(currentDate: Date): string {
         0,
         3
     );
-    const date = currentDate.getDate();
-    const min = currentDate.getMinutes();
-    const hour = currentDate.getHours();
+    const twoDigits = (n: number) => ('0' + n).slice(-2)
+    const date = twoDigits(currentDate.getDate());
+    const min = twoDigits(currentDate.getMinutes());
+    const hour = twoDigits(currentDate.getHours());
     return `${day} ${month} ${date}  ${hour}:${min}`;
 }
 
